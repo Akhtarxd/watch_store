@@ -109,7 +109,7 @@ class AdminController extends Controller
         }
     }
     
-    public function changeUserStatus(Request $request, $id, $status=1){
+    public function changeUserStatus($id, $status=1){
         $user = User::find($id);
         if(!empty($user)){
             $user->is_active = $status;

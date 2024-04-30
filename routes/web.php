@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 
@@ -15,6 +16,8 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('/view-product/{product}', 'productInfo')->name('productInfo');
     Route::get('/list-product', 'productList')->name('productList');
 });
+
+Route::resource('cart', CartController::class);
 
 
 Route::controller(AuthController::class)->group(function(){

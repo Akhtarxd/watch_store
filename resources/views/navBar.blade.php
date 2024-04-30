@@ -12,7 +12,7 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a href="cart.html" class="nav-link" style="margin-right: 15px">
+                <a href="{{route('cart.index')}}" class="nav-link" style="margin-right: 15px">
                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                     Cart</a>
             </li>

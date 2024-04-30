@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Comment;
 
 class User extends Authenticatable
 {
@@ -69,5 +70,8 @@ class User extends Authenticatable
 
     public function countryData(){
         return $this->hasOne(Country::class,'id','country');
+    }
+    public function commentData(){
+        return $this->hasOne(Comment::class);
     }
 }
