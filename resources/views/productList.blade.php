@@ -74,7 +74,7 @@
         <div class="card box" style="width: 75rem;">
             <h5 class="card-header">FILTER BY</h5>
             <div class="card-body">
-                <form name="search_by_detail" method="post" enctype="multipart/form-data">
+                <form name="search_by_detail" action="{{route('productList')}}" method="get" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class="form-group col-md m-1">
                             <label><b>Gender:</b></label>
@@ -120,17 +120,9 @@
                             <label><b>Brand:</b></label>
                             <select class="form-select" name="brand" id="brand" aria-label="brand filter">
                                 <option selected disabled>Select</option>
-                                <option value="tag_heuer">Tag Heuer</option>
-                                <option value="casio">Casio</option>
-                                <option value="fossil">Fossil</option>
-                                <option value="titan">Titan</option>
-                                <option value="rolex">Rolex</option>
-                                <option value="apple">Apple</option>
-                                <option value="cartier">Cartier</option>
-                                <option value="omega">Omega</option>
-                                <option value="diesel">Diesel</option>
-                                <option value="roadster">Roadster</option>
-                                <option value="daniel_wellington">Daniel Wellington</option>
+                                @foreach ($brands as $key => $value)
+                                    <option value="{{$key}}">{{$value}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md m-1">
@@ -204,23 +196,7 @@
     </div>
 </section>
         <div class="nav-container">
-            <nav aria-label="pagination ">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            {!! $products->links() !!}
         </div>
 
 @include('storeLocatore')
