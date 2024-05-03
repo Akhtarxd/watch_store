@@ -18,6 +18,8 @@ Route::controller(HomeController::class)->group(function(){
 });
 
 Route::resource('cart', CartController::class);
+Route::post('add-to-cart', [CartController::class, 'addToCart'])->name('addToCart');
+Route::get('store-order', [CartController::class, 'storeOrder'])->name('storeOrder');
 
 
 Route::controller(AuthController::class)->group(function(){

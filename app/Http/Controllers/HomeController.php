@@ -10,9 +10,9 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        $startDate = Carbon::now()->firstOfMonth();
-        $endDate = Carbon::now()->lastOfMonth();
-        $products = Product::whereBetween('created_at',[$startDate,$endDate])->inRandomOrder()->limit(8)->get();
+        // $startDate = Carbon::now()->firstOfMonth();
+        // $endDate = Carbon::now()->lastOfMonth();
+        $products = Product::inRandomOrder()->limit(8)->get();
         return view('userIndex',['products'=>$products]);
     }
 

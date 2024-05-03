@@ -123,7 +123,7 @@
                                         &nbsp;Update Cart
                                     </button>
                                 </form>
-                                    <a href="page-checkout.html" class="btn btn-outline-success my-1"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                                    <a href="{{route('storeOrder')}}" class="btn btn-outline-success my-1"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                                         &nbsp;Proceed to Checkout</a>
                                 </div>
                             </div>
