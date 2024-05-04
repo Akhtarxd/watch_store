@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Lineitem;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,8 +13,9 @@ class UserController extends Controller
 {
     public function userProfile(){
         $user = Auth()->user();
+        $lineItems = Lineitem::where('user_id', $user->id)->orderBy('id','DESC')->get();
         $countries = Country::all();
-        return view('userProfile',compact('user','countries'));
+        return view('userProfile',compact('user','countries','lineItems'));
     }
 
     public function updateUserProfile(Request $request){

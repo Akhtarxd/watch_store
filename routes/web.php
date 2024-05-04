@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 
 
@@ -46,12 +47,19 @@ Route::group(['prefix'=>'/admin', 'middleware'=>['CheckRoles']],function(){
         Route::get('/registerUser','registerUserProfile')->name('adminRegisterUserProfile');
         Route::post('/registerUser','registerUserProfileData')->name('adminRegisterUserProfileData');
         Route::get('/changeUserStatus/{id}/{status?}','changeUserStatus')->name('adminChangeUserStatus');
+        
     });
 
     Route::resource('brands', BrandsController::class);
     Route::controller(BrandsController::class)->group(function(){
       Route::get('/changeBrandStatus/{id}/{status?}', 'changeBrandStatus')->name('adminChangeBrandStatus');
       Route::post('/changeBrandImage/{id}', 'changeBrandImage')->name('adminChangeBrandImage');
+    });
+
+    Route::controller(OrderController::class)->group(function(){
+        Route::get('/orders','index')->name('list-orders');
+        Route::post('/changeOrderStatus/{id}','changeOrderStatus')->name('changeOrderStatus');
+        Route::get('/lineitems/{id}','getLineItems')->name('getLineItems');
     });
 
     Route::resource('product', ProductController::class);
