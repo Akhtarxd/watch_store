@@ -53,13 +53,7 @@ class BrandsController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Brands $brands)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -85,13 +79,6 @@ class BrandsController extends Controller
         return redirect()->route('brands.index')->with('success','Brand has been update successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Brands $brands)
-    {
-        //
-    }
 
     public function changeBrandStatus(Request $request, $id, $status = 1){
         $brand = Brands::find($id);

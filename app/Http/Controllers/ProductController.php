@@ -66,13 +66,7 @@ class ProductController extends Controller
        
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Product $product)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -139,13 +133,7 @@ class ProductController extends Controller
     }
     
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Product $product)
-    {
-        //
-    }
+    
 
     public function changeProductStatus(Request $request,$id,$status = 1){
         $product = Product::find($id);
